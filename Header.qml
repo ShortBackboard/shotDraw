@@ -21,6 +21,7 @@ Rectangle {
         ToolButton {
             id : save
             text: "         保存        "
+
         }
 
         ToolButton {

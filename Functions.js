@@ -6,3 +6,12 @@ function setPriImgSource() {
     priImg.source = "image://screenshot/"
 }
 
+// 截取屏幕
+function captureScreen(){
+    // 设置运行程序不可见
+    root.visible = false;
+
+    // 开启定时器
+    delayTimer.start();
+}
+
