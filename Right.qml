@@ -3,9 +3,10 @@
 import QtQuick
 
 Rectangle {
-    color: "grey"
     x: 976
     y: 40
     width: 300
     height: parent.height - 95
+    border.color: "black"
+    color: "#f0f0f0"
 }

@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Controls
+import "Functions.js" as Func // 导入JS文件
 
 ApplicationWindow {
     id: root
@@ -10,7 +11,18 @@ ApplicationWindow {
     minimumHeight: 768
     maximumHeight: 768
 
+
     visible: true
+
+    // 图片显示区域别名，用于其他文件引用
+    property alias priImg: image
+
+    // 启动软件时自动截取当前全屏
+    Component.onCompleted: {
+        // 调用C++注册的方法
+        shotFullScreen();
+        Func.setPriImgSource();
+    }
 
 
 
@@ -43,13 +55,16 @@ ApplicationWindow {
         y: 40
         width: 910
         height: parent.height - 95
-        color: "grey"
+        border.color: "black"
+        color: "#f0f0f0"
 
         Image {
             id: image
-            //source: "file"
+            anchors.fill: parent
+            source: ""
         }
     }
+
 
 }
 

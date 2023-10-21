@@ -9,5 +9,6 @@ Rectangle {
     height: parent.height - 40
 
 
-    color: "grey"
+    border.color: "black"
+    color: "#f0f0f0"
 }

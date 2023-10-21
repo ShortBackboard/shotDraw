@@ -9,7 +9,8 @@ import QtQuick.Layouts
 Rectangle {
     width: parent.width
     height: 35
-    color: "#cccccc"
+    border.color: "black"
+    color: "#f0f0f0"
 
     RowLayout {
         id: headerTools

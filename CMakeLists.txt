@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.26)
 project(shotDraw VERSION 0.1 LANGUAGES CXX)
 
 find_package(Qt6 6.4 REQUIRED COMPONENTS Quick)
+find_package(Qt6 REQUIRED COMPONENTS Widgets)
 
 qt_standard_project_setup()
 
@@ -11,6 +12,8 @@ qt_add_executable(appshotDraw)
 target_sources(appshotDraw
     PRIVATE
         main.cpp
+        selectImageProvider.h
+        screenCapture.h     screenCapture.cpp
         
     PUBLIC
         
@@ -25,6 +28,8 @@ qt_add_qml_module(appshotDraw
         Left.qml
         Right.qml
         Bottom.qml
+        Functions.js
+
 )
 
 target_compile_features(appshotDraw PRIVATE cxx_std_20)
@@ -41,6 +46,7 @@ set_target_properties(appshotDraw PROPERTIES
 target_link_libraries(appshotDraw
     PRIVATE 
         Qt6::Quick
+        Qt6::Widgets
 )
 
 install(TARGETS appshotDraw

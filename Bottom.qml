@@ -7,5 +7,6 @@ Rectangle {
     y: parent.height - 50
     width: parent.width - 60
     height: 50
-    color: "grey"
+    border.color: "black"
+    color: "#f0f0f0"
 }
