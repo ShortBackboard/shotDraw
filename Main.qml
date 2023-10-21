@@ -2,28 +2,24 @@ import QtQuick
 import QtQuick.Controls
 
 ApplicationWindow {
-    width: 640
-    height: 480
+    id: root
+
+    // 设置固定大小
+    minimumWidth: 1280
+    maximumWidth: 1280
+    minimumHeight: 768
+    maximumHeight: 768
+
     visible: true
-    title: qsTr("Hello World")
-    menuBar: MenuBar {
-        Menu {
-            title: qsTr("File")
-            MenuItem {
-                text: qsTr("&Open")
-                onTriggered: console.log("Open action triggered");
-            }
-            MenuItem {
-                text: qsTr("Exit")
-                onTriggered: Qt.quit();
-            }
-        }
+
+
+
+    // 设置标题
+    title: qsTr("ShotDraw")
+
+    // 头部工具栏
+    Header {
+        id: header
     }
 
-    //Content Area
-    TextArea {
-        text: qsTr("Hello World")
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.verticalCenter: parent.verticalCenter
-    }
 }

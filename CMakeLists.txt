@@ -21,6 +21,7 @@ qt_add_qml_module(appshotDraw
     VERSION 1.0
     QML_FILES 
         Main.qml
+        Header.qml
 )
 
 target_compile_features(appshotDraw PRIVATE cxx_std_20)
