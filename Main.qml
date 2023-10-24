@@ -17,6 +17,9 @@ ApplicationWindow {
     // 图片显示区域别名，用于其他文件引用
     property alias priImg: image
 
+    // 矩形区域截图
+    property alias selectWin: select
+
     // 启动软件时自动截取当前全屏
     Component.onCompleted: {
         // 调用C++注册的方法
@@ -28,6 +31,11 @@ ApplicationWindow {
 
     // 设置标题
     title: qsTr("ShotDraw")
+
+    // 不显示的区域，用于矩形区域截图
+    SelectWindow {
+        id: select
+    }
 
     // 头部工具栏
     Header {
@@ -42,6 +50,13 @@ ApplicationWindow {
     // 右侧截屏选项工具栏
     Right {
         id: rightTools
+
+        // 矩形区域截图信号的定义
+        onSelectArea: {
+            // 调用C++中的全屏截图
+            // 显示此窗口
+            select.winSelected.showFullScreen()
+        }
     }
 
     // 底部工具栏

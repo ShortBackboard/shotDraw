@@ -7,6 +7,9 @@ import "Functions.js" as Func
 
 Rectangle {
 
+    // 用于矩形区域截图的信号，定义在Main.qml
+    signal selectArea();
+
     x: 976
     y: 40
     width: 300
@@ -17,7 +20,7 @@ Rectangle {
     // 定时器，用于延时截屏
     Timer {
         id: delayTimer
-        interval: 250+spinBox.value*1000
+        interval: 250 + spinBox.value * 1000
 
         onTriggered: {
             // 到时触发事件
@@ -47,15 +50,33 @@ Rectangle {
             Layout.leftMargin: (parent.width - row2.width) / 2
             spacing: 10
 
-            Button{
+            Button {
                 id: rectangularRegionButton
                 Layout.preferredWidth: 250
                 Layout.preferredHeight: 45
                 text: "矩形区域"
                 onClicked: {
+                    root.visible = false;
 
+                    // 定义一段时间来切换屏幕
+                    timer.start();
                 }
 
+                Timer {
+                    id: timer
+                    interval: 250
+
+                    // 到时触发事件
+                    onTriggered: {
+                        // 截一张全屏图用于选择矩形区域截图
+                        shotFullScreen();
+
+                        // 发送信号，在Main.qml中定义，开始矩形区域截图
+                        selectArea();
+
+                        Func.selectImg();
+                    }
+                }
             }
 
             Button{

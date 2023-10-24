@@ -20,6 +20,7 @@ public:
     // Q_INVOKABLE注册C++函数到QML使用
     // 初始设定图片截取后，暂不返回任何值
     Q_INVOKABLE void shotFullScreen();  // 全屏截取
+    Q_INVOKABLE void shotFullScreen(int x, int y, int w, int h);  // 矩形区域截取
 
 
 public:
