@@ -21,6 +21,8 @@ public:
     // 初始设定图片截取后，暂不返回任何值
     Q_INVOKABLE void shotFullScreen();  // 全屏截取
     Q_INVOKABLE void shotFullScreen(int x, int y, int w, int h);  // 矩形区域截取
+     Q_INVOKABLE void shotActiveWin();   //活动窗口截图
+     Q_INVOKABLE void getActiveWinId();  //获取并保存系统当前活动窗口ID，用于活动窗口截图
 
 
 public:
@@ -30,5 +32,6 @@ private:
     QScreen *m_screen;  // 当前屏幕
     QClipboard *m_clipBoard;    // 剪贴板
     QPixmap *m_currentPic;  // 保存当前图片，为支持‘保存’功能
+    WId winId{0};   // 保存当前活动窗口ID
 };
 #endif // SCREENCAPTURE_H

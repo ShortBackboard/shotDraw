@@ -4,10 +4,17 @@ project(shotDraw VERSION 0.1 LANGUAGES CXX)
 
 find_package(Qt6 6.4 REQUIRED COMPONENTS Quick)
 find_package(Qt6 REQUIRED COMPONENTS Widgets)
+find_package(X11 REQUIRED)
 
 qt_standard_project_setup()
 
 qt_add_executable(appshotDraw)
+
+find_package(Qt6 REQUIRED COMPONENTS Quick)
+include_directories(${X11_INCLUDE_DIR})
+link_directories(${X11_LIB_DIR})
+target_link_libraries(appshotDraw PRIVATE Qt6::Quick)
+target_link_libraries(appshotDraw PRIVATE ${X11_LIBRARIES})
 
 target_sources(appshotDraw
     PRIVATE

@@ -27,6 +27,8 @@ ApplicationWindow {
         Func.setPriImgSource();
     }
 
+    // 活动窗口改变时，调用C++注册的方法，获得并保存活动窗口Id
+    onActiveChanged: getActiveWinId();
 
 
     // 设置标题

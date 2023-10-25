@@ -93,7 +93,18 @@ Rectangle {
                 Layout.preferredHeight: 45
                 text: "活动窗口"
                 onClicked: {
+                    root.visible = false
+                    timerActive.start();
+                }
 
+                Timer {
+                    id: timerActive
+                    interval: 250
+                    onTriggered: {
+                        shotActiveWin();
+                        Func.setPriImgSource();
+                        root.visible = true;
+                    }
                 }
             }
 
@@ -112,6 +123,7 @@ Rectangle {
                 editable: true
                 value: 0
                 stepSize: 1
+                to: 99
             }
         }
 
