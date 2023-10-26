@@ -10,5 +10,7 @@
         <file>icons/rect.png</file>
         <file>icons/text.png</file>
         <file>Dialogs.qml</file>
+        <file>icons/qq.png</file>
+        <file>icons/wexin.png</file>
     </qresource>
 </RCC>

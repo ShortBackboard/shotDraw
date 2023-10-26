@@ -2,6 +2,10 @@ cmake_minimum_required(VERSION 3.26)
 
 project(shotDraw VERSION 0.1 LANGUAGES CXX)
 
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_AUTOUIC ON)
+
 find_package(Qt6 6.4 REQUIRED COMPONENTS Quick)
 find_package(Qt6 REQUIRED COMPONENTS Widgets)
 find_package(X11 REQUIRED)
@@ -21,6 +25,7 @@ target_sources(appshotDraw
         main.cpp
         selectImageProvider.h
         screenCapture.h     screenCapture.cpp
+        share.h             share.cpp
         
     PUBLIC
         resource.qrc
@@ -57,6 +62,7 @@ target_link_libraries(appshotDraw
     PRIVATE 
         Qt6::Quick
         Qt6::Widgets
+        ${X11_LIBRARIES}
 )
 
 install(TARGETS appshotDraw
@@ -65,6 +71,8 @@ install(TARGETS appshotDraw
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
 
+target_link_libraries(appshotDraw PRIVATE Qt6::Widgets)
+target_link_libraries(appshotDraw PRIVATE Qt6::Core)
 
 
 

@@ -36,15 +36,44 @@ Rectangle {
             text: "        打开        "
             highlighted: open.hovered ? true : false
             onClicked: () => {
-                            dialogs.openFileDialog()
+                           dialogs.openFileDialog()
                        }
         }
 
 
         ToolButton {
-            id : share
+            id : shareTool
             text: "        分享        "
-            highlighted: share.hovered ? true : false
+            highlighted: shareTool.hovered ? true : false
+
+
+            // 点击显示分享菜单栏
+            onClicked: menuShare.popup(0, 30)
+
+            Menu {
+                id: menuShare
+                Menu {
+                    title: qsTr("分享")
+                    MenuItem {
+                        id: qq
+                        text: qsTr("分享至QQ")
+                        icon.source: "qrc:/icons/qq.png"
+                        onTriggered: {
+                            share.shareToQQ()
+                        }
+                    }
+
+                    MenuItem{
+                        id: wexin
+                        text: qsTr("分享至微信")
+                        icon.source: "qrc:/icons/wexin.png"
+                        onTriggered: {
+                            share.shareToWeXin()
+                        }
+                    }
+                }
+            }
+
         }
 
         ToolButton {
