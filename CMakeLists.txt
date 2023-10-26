@@ -23,6 +23,7 @@ target_sources(appshotDraw
         screenCapture.h     screenCapture.cpp
         
     PUBLIC
+        resource.qrc
         
 )
 
