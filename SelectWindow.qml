@@ -21,6 +21,47 @@ Window {
         source: ""
     }
 
+    // 使用4个矩形阴影区域，实现矩形区域截图未选择区域为阴影
+    Rectangle { // 上方矩形
+        id: rect1
+        width: selectedImg.width
+        height: dragRect.y
+        anchors.top: selectedImg.top
+        color: "#73000000" // 设置透明度颜色
+    }
+
+    Rectangle { // 左方矩形
+        id: rect2
+        width: dragRect.x
+        height: selectedImg.height - rect1.height - rect4.height
+        anchors.top: rect1.bottom
+        anchors.bottom: rect4.top
+        anchors.left: selectedWin.left
+
+        color: "#73000000"
+    }
+
+    Rectangle { // 右方矩形
+        id: rect3
+        width: selectedWin.width - rect2.width - dragRect.width
+        height: selectedWin.height - rect1.height - rect4.height
+        anchors.top: rect1.bottom
+        anchors.bottom: rect4.top
+        anchors.right: selectedImg.right
+
+        color: "#73000000"
+    }
+
+    Rectangle { // 下方矩形
+        id: rect4
+        width: selectedWin.width
+        height: selectedWin.height - rect1.height - dragRect.height
+        anchors.bottom: selectedImg.bottom
+        color: "#73000000"
+    }
+
+
+
     MouseArea {
         id: mouseArea
         anchors.fill: parent

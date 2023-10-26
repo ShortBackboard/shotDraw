@@ -19,7 +19,7 @@ function captureScreen() {
 
 // 矩形区域截图
 function cutArea(x, y, w, h){
-    shotFullScreen(x+1, y+1, w-3, h-3);
+    shotFullScreen(x + 1, y + 1, w - 3, h - 3);
     setPriImgSource();
 }
 
