@@ -79,7 +79,25 @@ ApplicationWindow {
             id: image
             anchors.fill: parent
             source: ""
+
+            // 设置显示图片的路径，用于打开文件
+            function setImagePaths() {
+                image.source = arguments[0]
+            }
         }
+
+    }
+
+    // 对话框
+    Dialogs {
+        id: dialogs
+
+        // 打开文件
+        fileOpenDialog.onAccepted: {
+            // 文件对话框的返回值路径来设置显示图片
+            image.setImagePaths(fileOpenDialog.selectedFile)
+        }
+
     }
 
 

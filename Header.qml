@@ -21,38 +21,54 @@ Rectangle {
         ToolButton {
             id : save
             text: "         保存        "
+            highlighted: save.hovered ? true : false
 
         }
 
         ToolButton {
             id : saveAs
             text: "        另存为        "
+            highlighted: saveAs.hovered ? true : false
         }
 
         ToolButton {
             id : open
             text: "        打开        "
+            highlighted: open.hovered ? true : false
+            onClicked: () => {
+                            dialogs.openFileDialog()
+                       }
         }
 
 
         ToolButton {
             id : share
             text: "        分享        "
+            highlighted: share.hovered ? true : false
         }
 
         ToolButton {
             id : screen
             text: "        录屏        "
+            highlighted: screen.hovered ? true : false
         }
 
         ToolButton {
             id : about
             text: "        关于        "
+            highlighted: about.hovered ? true : false
+            onClicked: () => {
+                           dialogs.aboutInfoDialog()
+                       }
         }
 
         ToolButton {
             id : help
             text: "        帮助        "
+            highlighted: help.hovered ? true : false
+            onClicked: () => {
+                           dialogs.helpDialog()
+                       }
         }
 
     }

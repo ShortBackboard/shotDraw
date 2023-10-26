@@ -37,6 +37,7 @@ qt_add_qml_module(appshotDraw
         Right.qml
         Bottom.qml
         SelectWindow.qml
+        Dialogs.qml
         Functions.js
 
 )
